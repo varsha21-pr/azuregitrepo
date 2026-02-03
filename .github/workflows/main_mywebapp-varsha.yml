@@ -46,13 +46,6 @@ jobs:
         with:
           name: java-app
       
-      - name: Login to Azure
-        uses: azure/login@v2
-        with:
-          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_707D041AB1AD47ACACEF93C14022CF13 }}
-          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_721412D9CCFF4B509D6C0A4205174108 }}
-          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_6CBCB4D5D4ED40CF9EAAE894AC9AB40B }}
-
       - name: Deploy to Azure Web App
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v3
@@ -60,4 +53,5 @@ jobs:
           app-name: 'mywebapp-varsha'
           slot-name: 'Production'
           package: '*.jar'
+
           
